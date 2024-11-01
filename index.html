@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видео с кнопкой</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #okButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #videoContainer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="okButton">OK</button>
+    <div id="videoContainer">
+        <video id="myVideo" width="640" height="360" controls>
+            <source src="video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+    </div>
+
+    <script>
+        const okButton = document.getElementById('okButton');
+        const videoContainer = document.getElementById('videoContainer');
+        const video = document.getElementById('myVideo');
+
+        okButton.addEventListener('click', function() {
+            okButton.style.display = 'none';
+            videoContainer.style.display = 'block';
+            video.volume = 1; // Устанавливаем максимальную громкость
+            video.play(); // Автоматически начинаем воспроизведение
+        });
+    </script>
+</body>
+</html>
